@@ -1,4 +1,5 @@
 "use client"
+import React from 'react';
 import styles from './page.module.css'
 import { Container, Stack, Paper, Box, Grid } from '@mui/material'
 import { styled } from '@mui/material/styles';
@@ -17,18 +18,8 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Home() {
-  const playerInitalState = {
-    select: "",
-    onClick: () => {},
-  }
+  const [playerState, setPlayerState] = useState("");
 
-  const [playerState, setPlayerState] = useState({ playerInitalState });
-
-  const mediaBTNEventHandler = (prop: string) => {
-    setPlayerState({ select: prop, onClick: clickAction })
-    console.log(playerState)
-    return prop;
-  }
 
   return (
     <main className={styles.main}>
@@ -38,9 +29,20 @@ export default function Home() {
           <Title prop={"Song"} />
           <Title prop={"Artist"} />
           <Grid display={"flex"} direction={"row"} justifyContent={"space-evenly"} item xs={12}>
-            <PlayerButton prop={"Back"}/>
-            <PlayerButton prop={"Pause/Play"}/>
-            <PlayerButton prop={"Next"}/>
+            <PlayerButton 
+            prop={"Back"} 
+            playerState={playerState} 
+            setPlayerState={setPlayerState}/>
+            <PlayerButton 
+            prop={"Pause/Play"}
+            playerState={playerState} 
+            setPlayerState={setPlayerState}
+            />
+            <PlayerButton 
+            prop={"Next"}
+            playerState={playerState} 
+            setPlayerState={setPlayerState}
+            />
           </Grid>
         </Grid>
       </Box>
