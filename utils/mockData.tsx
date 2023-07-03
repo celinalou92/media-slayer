@@ -1,2 +1,7 @@
 export const mockMediaData =
-    { category: "Fruits", price: "$1", stocked: true, name: "Apple" };
+{
+    media: "Image Here",
+    pag: "Live Media Pagination",
+    stocked: true,
+    name: "Apple"
+};
