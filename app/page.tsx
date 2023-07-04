@@ -18,30 +18,43 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Home() {
-  const [playerState, setPlayerState] = useState("");
+  const [playerState, setPlayerState] = useState();
+  const [play, setPlay] = useState(false);
+  console.log("page ======")
+  console.log(playerState)
 
 
   return (
     <main className={styles.main}>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-          <MediaPlayer window={mockMediaData.media} pag={mockMediaData.pag} />
+          <MediaPlayer window={mockMediaData.media} pag={mockMediaData.pag} playing={play}/>
           <Title prop={"Song"} />
           <Title prop={"Artist"} />
           <Grid display={"flex"} direction={"row"} justifyContent={"space-evenly"} item xs={12}>
             <PlayerButton 
             prop={"Back"} 
-            playerState={playerState} 
-            setPlayerState={setPlayerState}/>
-            <PlayerButton 
-            prop={"Pause/Play"}
+            // clickHandler={clickHandler}
+            // play={play}
             playerState={playerState} 
             setPlayerState={setPlayerState}
+            // setPlay={setPlay}
+            />
+            <PlayerButton 
+            prop={"Pause/Play"}
+            // clickHandler={clickHandler}
+            // play={play}
+            playerState={playerState} 
+            setPlayerState={setPlayerState}
+            // setPlay={setPlay}
             />
             <PlayerButton 
             prop={"Next"}
+            // clickHandler={clickHandler}
+            // play={play}
             playerState={playerState} 
             setPlayerState={setPlayerState}
+            // setPlay={setPlay}
             />
           </Grid>
         </Grid>

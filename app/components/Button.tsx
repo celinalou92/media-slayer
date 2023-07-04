@@ -8,12 +8,14 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-const PlayerButton = ({ prop, playerState, setPlayerState }) => {
+const PlayerButton = ({ prop, play, setPlay, playerState, setPlayerState }: any) => {
     const clickHandler = (e) => {
-        setPlayerState(e.target.value)
-        console.log(playerState)
+    
+        const updatedP = e.target.value
+        setPlayerState(updatedP)
+
     };
-    console.log(playerState)
+    
     return (
         <Button
             variant='outlined'
