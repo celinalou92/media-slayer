@@ -8,12 +8,16 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-const PlayerButton = ({ prop, play, setPlay, playerState, setPlayerState }: any) => {
-    const clickHandler = (e) => {
-    
-        const updatedP = e.target.value
-        setPlayerState(updatedP)
+const PlayerButton = ({ prop, play, setPlay, setPlayerState }: any) => {
 
+    const clickHandler = (e) => {
+        const updatedP = e.target.value
+        if(prop == "Pause/Play") {
+            setPlay(!play)
+            setPlayerState(updatedP)
+            console.log({"Play selected": play})
+        }
+        setPlayerState(updatedP)
     };
     
     return (
