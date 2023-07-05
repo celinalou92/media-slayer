@@ -22,18 +22,20 @@ export default function Home() {
           <Title prop={"Song"} />
           <Title prop={"Artist"} />
           <Grid display={"flex"} justifyContent={"space-evenly"} item xs={12}>
-            {
-              playerStateArr.map((playerValue, i) =>
-                <PlayerButton
-                prop={playerValue}
-                key={i}
-                play={play}
-                playerState={playerState}
-                setPlayerState={setPlayerState}
-                setPlay={setPlay}
-              />
-              )
-            }
+            <Grid container display={"flex"} direction={"row"} justifyContent={"space-evenly"} item xs={12}>
+              {
+                playerStateArr.map((playerValue, i) =>
+                  <PlayerButton
+                    prop={playerValue}
+                    key={i}
+                    play={play}
+                    playerState={playerState}
+                    setPlayerState={setPlayerState}
+                    setPlay={setPlay}
+                  />
+                )
+              }
+            </Grid>
           </Grid>
         </Grid>
       </Box>
