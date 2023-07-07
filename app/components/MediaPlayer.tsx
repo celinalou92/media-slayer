@@ -10,6 +10,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const MediaPlayer = ({ window, pag, playing }) => {
+
   return (
     <Grid item xs={12}>
     {/* // Render a YouTube video player */}
@@ -17,7 +18,7 @@ const MediaPlayer = ({ window, pag, playing }) => {
       playing={playing}
       controls={true}
       width={"auto"}
-      url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      url='https://www.youtube.com/live/jfKfPfyJRdk?feature=share' />
         <Item>{window}</Item>
         <Item>{pag}</Item>
       </Grid>
