@@ -1,28 +1,27 @@
 "use client"
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './page.module.css'
 import { Box, Grid } from '@mui/material'
 import { mockMediaData } from '@/utils/mockData';
 import PlayerButton from './components/PlayerButton';
 import Title from './components/Title';
 import MediaPlayer from './components/MediaPlayer';
-import { useState } from 'react';
 
 const callAPI = async () => {
   try {
-      const res = await fetch(
-          `https://api.spotify.com/v1/search?q=bob&type=artist&market=us&limit=10&offset=0`,
-          {
-              method: 'GET',
-              headers: {
-                  'Authorization': ''
-              },
-          }
-      );
-      const data = await res.json();
-      console.log(data);
+    const res = await fetch(
+      `https://api.spotify.com/v1/search?q=bob&type=artist&market=us&limit=10&offset=0`,
+      {
+        method: 'GET',
+        headers: {
+          'Authorization': ''
+        },
+      }
+    );
+    const data = await res.json();
+    console.log(data);
   } catch (err) {
-      console.log(err);
+    console.log(err);
   }
 };
 
@@ -31,16 +30,21 @@ const callAPI = async () => {
 export default function Home() {
   const [playerState, setPlayerState] = useState();
   const [play, setPlay] = useState(false);
-
+  const [hasWindow, setHasWindow] = useState(false);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setHasWindow(true);
+    }
+  }, []);
   // const [data, setData] = useState(null)
   // const [isLoading, setLoading] = useState(false)
 
   // const baseURI = `https://api.spotify.com/v1/search?`
   // const searchParams = `q=bob&type=artist&market=us&limit=10&offset=0`
 
-  useEffect(() => {
-    callAPI()
-  }, [])
+  // useEffect(() => {
+  //   callAPI()
+  // }, [])
 
 
 
@@ -49,7 +53,14 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Box sx={{ flexGrow: 1 }}>
-          <MediaPlayer window={mockMediaData.media} pag={mockMediaData.pag} playing={play} />
+        {
+          hasWindow &&
+          <MediaPlayer
+            window={mockMediaData.media}
+            pag={mockMediaData.pag}
+            playing={play}
+          />
+        }
         <Grid container spacing={2}>
           <Title prop={"Song"} />
           <Title prop={"Artist"} />

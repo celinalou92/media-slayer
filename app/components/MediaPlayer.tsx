@@ -1,27 +1,21 @@
-import { Paper, styled, Grid } from '@mui/material'
+"use client"
 import ReactPlayer from 'react-player'
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+export interface MediaPlayerProps {
+  window: string,
+  pag: string,
+  playing: boolean
+}
 
-const MediaPlayer = ({ window, pag, playing }) => {
+const MediaPlayer = ({ window, pag, playing }: MediaPlayerProps) => {
 
   return (
-    <Grid item xs={12}>
-    {/* // Render a YouTube video player */}
-      <ReactPlayer 
-      playing={playing}
-      controls={true}
-      width={"auto"}
-      url='https://www.youtube.com/live/jfKfPfyJRdk?feature=share' />
-        <Item>{window}</Item>
-        <Item>{pag}</Item>
-      </Grid>
+      <ReactPlayer
+        playing={playing}
+        controls={playing}
+        width={"auto"}
+        url='https://www.youtube.com/live/UC1IyzbaWVo?feature=share'
+      />
   )
 }
 
