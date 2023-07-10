@@ -14,6 +14,7 @@ const PlayerButton = ({ prop, play, setPlay, setPlayerState }: any) => {
     
     return (
         <Button
+        data-testid={"PlayerButton"}
             variant='outlined'
             value={prop}
             onClick={clickHandler}
