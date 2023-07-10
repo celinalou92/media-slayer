@@ -10,7 +10,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const PlayerButton = ({prop}) => {
     return (
-        <Item>{prop}</Item>
+        <Item data-testid="Author">{prop}</Item>
     )
 }
 

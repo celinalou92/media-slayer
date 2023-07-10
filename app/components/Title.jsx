@@ -10,7 +10,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Title = ({prop}) => {
     return (
-        <Grid item xs={6}>
+        <Grid data-testid="Title" item xs={6}>
         <Item>{prop}</Item>
       </Grid>
     )
