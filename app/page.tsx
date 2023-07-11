@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './page.module.css'
 import { Box, Grid } from '@mui/material'
-import { mockMediaData } from '@/utils/mockData';
 import PlayerButton from './components/PlayerButton';
 import Title from './components/Title';
 import MediaPlayer from './components/MediaPlayer';
@@ -56,8 +55,6 @@ export default function Home() {
         {
           hasWindow &&
           <MediaPlayer
-            window={mockMediaData.media}
-            pag={mockMediaData.pag}
             playing={play}
           />
         }

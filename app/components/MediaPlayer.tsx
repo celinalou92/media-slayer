@@ -1,21 +1,19 @@
 "use client"
-import ReactPlayer from 'react-player'
+import SpotifyPlayer from 'react-spotify-web-playback';
+
 
 export interface MediaPlayerProps {
-  window: string,
-  pag: string,
   playing: boolean
 }
 
-const MediaPlayer = ({ window, pag, playing }: MediaPlayerProps) => {
+const MediaPlayer = ({ playing }: MediaPlayerProps) => {
 
   return (
-      <ReactPlayer
-        playing={playing}
-        controls={playing}
-        width={"auto"}
-        url='https://www.youtube.com/live/UC1IyzbaWVo?feature=share'
-      />
+    <SpotifyPlayer
+      token="BQDVyH1E7tpMeyG3_6O9otDenNWAkvtGQG4gbGgR1309r7YVgIl_B_yKQfjXeCLpZzU1sxAmWeCTXl2BDnpoZ_JReKAlzZGA4YEly1DlZXMFe60l-bfACFqGa8LeA0-6m-BxwyCeKC2MFKG-ihWrK7E7YGkcbrRMpfCf0sVPpAzoIZiBxz5ilRtQbcfQfGw04i7TYQG1"
+      uris={['spotify:artist:6HQYnRM4OzToCYPpVBInuU']}
+      play={playing}
+    />
   )
 }
 
