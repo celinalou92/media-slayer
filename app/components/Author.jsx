@@ -8,10 +8,10 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-const PlayerButton = ({prop}) => {
+const Author = ({prop}) => {
     return (
         <Item data-testid="Author">{prop}</Item>
     )
 }
 
-export default PlayerButton;
+export default Author;
